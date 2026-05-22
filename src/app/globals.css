@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-sans: var(--font-space-grotesk);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --bg-canvas: #f1f1f4; /* Subtle technical gray canvas */
+  --bg-canvas: #f9fafb;
+  --bg-dashboard: #f3f4f6;
+  --bg-card: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --border-color: #e5e7eb;
+  --accent-color: #2563ff;
+  --accent-hover: #1d4ed8;
+  --accent-badge: #e0f2fe;
+  --text-accent-badge: #0369a1;
+  --hero-glow-color: rgba(37, 99, 255, 0.18);
+  --hero-glow-soft-color: rgba(37, 99, 255, 0.06);
+  --text-muted: #71717a; /* zinc-500 */
+  --dot-color: rgba(9, 9, 11, 0.06);
+  --accent-glow: rgba(37, 99, 255, 0.08);
+  --accent-border: rgba(37, 99, 255, 0.30);
+  --bg-accent-badge: rgba(37, 99, 255, 0.08);
+}
+
+.dark {
+  --bg-canvas: #0d1117;
+  --bg-dashboard: #0d1117;
+  --bg-card: #1f2937;
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --border-color: #1f2937;
+  --accent-color: #0ea5ff;
+  --accent-hover: #38bdf8;
+  --accent-badge: #1e293b;
+  --text-accent-badge: #0ea5ff;
+  --hero-glow-color: rgba(14, 165, 255, 0.28);
+  --hero-glow-soft-color: rgba(14, 165, 255, 0.08);
+  --text-muted: #9CA3AF;
+  --dot-color: rgba(255, 255, 255, 0.05);
+  --accent-glow: rgba(14, 165, 255, 0.08);
+  --accent-border: rgba(14, 165, 255, 0.35);
+  --bg-accent-badge: rgba(14, 165, 255, 0.15);
+  --text-accent-badge: #0EA5FF;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Scroll Offset for sticky navigation headers */
+section[id], div[id], main[id] {
+  scroll-margin-top: 90px;
+}
+
+/* Patrón sutil de cuadrícula de puntos para el dashboard central */
+.dot-grid {
+  background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Efectos premium de dashboard */
+.dashboard-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dashboard-card:hover {
+  border-color: var(--accent-border);
+  box-shadow: 0 0 25px var(--accent-glow);
+}
+
+/* Efecto de cristalera para overlays */
+.glass-overlay {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  #inicio {
+    --mouse-x: 50% !important;
+    --mouse-y: 50% !important;
+    --mouse-x-offset: 0 !important;
+    --mouse-y-offset: 0 !important;
+  }
+  
+  /* Disable laser scan and orbits ping for prefers-reduced-motion */
+  .animate-\[ping_6s_cubic-bezier\(0\,0\,0\.2\,1\)_infinite\],
+  .animate-pulse {
+    animation: none !important;
+  }
+}
+
+/* Radar scan sweeping laser line keyframes for Tech Constellation */
+@keyframes hero-scan {
+  0% {
+    top: -10%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.15;
+  }
+  90% {
+    opacity: 0.15;
+  }
+  100% {
+    top: 110%;
+    opacity: 0;
+  }
+}
