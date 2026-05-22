@@ -2,6 +2,7 @@ import { Space_Grotesk, Geist_Mono } from "next/font/google";
 import { getMessages, getTranslations } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import { ThemeProvider } from "../../components/providers/ThemeProvider";
+import { Analytics } from "@vercel/analytics/react";
 import "../globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -18,6 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Metadata" });
   return {
+    metadataBase: new URL('https://kevdev-portfolio.vercel.app'),
     title: t("title"),
     description: t("description"),
     keywords: [
@@ -31,7 +33,15 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       "Garage Studios",
       "Portfolio"
     ],
-    authors: [{ name: "Kevin Ochoa González" }]
+    authors: [{ name: "Kevin Ochoa González" }],
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      url: 'https://kevdev-portfolio.vercel.app',
+      siteName: 'Kev Dev Portfolio',
+      locale: locale === 'es' ? 'es_ES' : 'en_US',
+      type: 'website',
+    }
   };
 }
 
@@ -72,6 +82,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages} locale={locale}>
           <ThemeProvider>
             {children}
+            <Analytics />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
