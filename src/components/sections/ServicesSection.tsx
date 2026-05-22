@@ -96,11 +96,11 @@ export const ServicesSection = () => {
               <Card className={`dashboard-card flex flex-col justify-between h-full transition-colors duration-300 space-y-4`}>
                 <div className="space-y-3">
                 {/* Header decorativo */}
-                <div className="flex items-center justify-between border-b border-[var(--border-color)] pb-2">
-                  <span className="font-mono text-sm text-[var(--accent-color)] font-bold">
+                <div className="flex items-start justify-between border-b border-[var(--border-color)] pb-2 gap-2">
+                  <span className="font-mono text-sm text-[var(--accent-color)] font-bold shrink-0">
                     {`SVC_0${idx + 1}`}
                   </span>
-                  <span className="inline-flex items-center rounded bg-[var(--bg-accent-badge)] px-2 py-0.5 text-sm font-mono font-bold text-[var(--text-accent-badge)] border border-[var(--accent-border)] transition-all duration-300 group-hover:shadow-[0_0_8px_var(--accent-glow)] group-hover:border-[var(--accent-color)]">
+                  <span className="inline-flex items-center rounded bg-[var(--bg-accent-badge)] px-2 py-0.5 text-xs font-mono font-bold text-[var(--text-accent-badge)] border border-[var(--accent-border)] transition-all duration-300 group-hover:shadow-[0_0_8px_var(--accent-glow)] group-hover:border-[var(--accent-color)] text-right leading-snug">
                     {service.price}
                   </span>
                 </div>
