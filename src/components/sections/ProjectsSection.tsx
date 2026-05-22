@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Card from "../ui/Card";
 import SectionTitle from "../ui/SectionTitle";
@@ -46,16 +47,43 @@ export const ProjectsSection = () => {
     }
   ];
 
+  const shouldReduceMotion = useReducedMotion();
+  const containerVariants: any = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 }
+    }
+  };
+
+  const itemVariants: any = {
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  };
+
   return (
     <section id="otros-proyectos" className="py-6 border-t border-[var(--border-color)]">
       <SectionTitle title={t("title")} subtitle={t("subtitle")} />
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-50px" }}
+        className="grid grid-cols-1 md:grid-cols-3 gap-4"
+      >
         {futureProjects.map((proj) => {
           const Icon = proj.icon;
           return (
-            <Card key={proj.id} className="dashboard-card relative overflow-hidden bg-[var(--bg-card)] flex flex-col justify-between h-full p-5 transition-all duration-300 group hover:border-[var(--accent-border)] hover:shadow-[0_0_15px_var(--accent-glow)] gap-4">
-              <div className="space-y-3 relative z-10">
+            <motion.div 
+              key={proj.id} 
+              variants={itemVariants}
+              whileHover={shouldReduceMotion ? {} : { y: -6 }}
+              transition={{ duration: 0.3 }}
+              className="h-full"
+            >
+              <Card className="dashboard-card relative overflow-hidden bg-[var(--bg-card)] flex flex-col justify-between h-full p-5 transition-all duration-300 group hover:border-[var(--accent-color)] hover:shadow-[0_8px_30px_-10px_var(--accent-glow)] gap-4">
+                <div className="space-y-3 relative z-10">
                 {/* Cabecera del Proyecto */}
                 <div className="flex items-center justify-between font-mono text-[9px]">
                   <Badge className={`uppercase tracking-widest px-2 py-0.5 border font-bold ${proj.badgeClass}`}>
@@ -108,9 +136,10 @@ export const ProjectsSection = () => {
                 </div>
               </div>
             </Card>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     </section>
   );
 };

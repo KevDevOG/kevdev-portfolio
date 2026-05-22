@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Card from "../ui/Card";
 import SectionTitle from "../ui/SectionTitle";
@@ -8,8 +9,8 @@ import { Layout, Zap, Smartphone, MessageCircle, ShieldCheck } from "lucide-reac
 
 export const ServicesSection = () => {
   const t = useTranslations("Services");
-
   const tBrand = useTranslations("Values");
+  const shouldReduceMotion = useReducedMotion();
 
   const mainServices = [
     {
@@ -64,7 +65,16 @@ export const ServicesSection = () => {
       <SectionTitle title={t("title")} subtitle={t("subtitle")} />
       
       {/* Grid de servicios principales */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+      <motion.div 
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={{
+          hidden: { opacity: 0 },
+          show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+        }}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4"
+      >
         {mainServices.map((service, idx) => {
           // Determinar clases de grid responsivas para centrar 2 en la segunda fila
           let gridClasses = "col-span-1 lg:col-span-2 sm:col-span-1";
@@ -75,14 +85,22 @@ export const ServicesSection = () => {
           }
 
           return (
-            <Card key={idx} className={`dashboard-card flex flex-col justify-between h-full transition-colors duration-300 space-y-4 ${gridClasses}`}>
-              <div className="space-y-3">
+            <motion.div 
+              key={idx}
+              variants={{
+                hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+              }}
+              className={gridClasses}
+            >
+              <Card className={`dashboard-card flex flex-col justify-between h-full transition-colors duration-300 space-y-4`}>
+                <div className="space-y-3">
                 {/* Header decorativo */}
                 <div className="flex items-center justify-between border-b border-[var(--border-color)] pb-2">
                   <span className="font-mono text-[10px] text-[var(--accent-color)] font-bold">
                     {`SVC_0${idx + 1}`}
                   </span>
-                  <span className="inline-flex items-center rounded bg-[var(--bg-accent-badge)] px-2 py-0.5 text-[10px] font-mono font-bold text-[var(--text-accent-badge)] border border-[var(--accent-border)]">
+                  <span className="inline-flex items-center rounded bg-[var(--bg-accent-badge)] px-2 py-0.5 text-[10px] font-mono font-bold text-[var(--text-accent-badge)] border border-[var(--accent-border)] transition-all duration-300 group-hover:shadow-[0_0_8px_var(--accent-glow)] group-hover:border-[var(--accent-color)]">
                     {service.price}
                   </span>
                 </div>
@@ -108,13 +126,20 @@ export const ServicesSection = () => {
                 </p>
               </div>
             </Card>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
 
       {/* Bloque de Mantenimiento Separado (Add-on recomendado) */}
-      <div className="mt-8 max-w-3xl mx-auto">
-        <div className="relative rounded-xl border border-dashed border-[var(--border-color)] bg-[var(--bg-card)]/40 p-5 transition-all duration-300 hover:border-[var(--accent-border)] hover:bg-[var(--bg-card)]/60 group">
+      <motion.div 
+        initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+        className="mt-8 max-w-3xl mx-auto"
+      >
+        <div className="relative rounded-xl border border-dashed border-[var(--border-color)] bg-[var(--bg-card)]/40 p-5 transition-all duration-300 hover:border-[var(--accent-border)] hover:shadow-[0_0_15px_var(--accent-glow)] hover:bg-[var(--bg-card)]/60 group">
           {/* Glow superior decorativo */}
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--accent-color)]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           
@@ -160,7 +185,7 @@ export const ServicesSection = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Nota de precios discreta */}
       <div className="mt-4 flex justify-end">
@@ -179,10 +204,23 @@ export const ServicesSection = () => {
             {tBrand("subtitle")}
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <motion.div 
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            show: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } }
+          }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4"
+        >
           {brandValues.map((value, idx) => (
-            <div 
+            <motion.div 
               key={idx} 
+              variants={{
+                hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 15 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
+              }}
               className="relative p-5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)]/50 hover:bg-[var(--bg-card)] transition-all duration-300 flex flex-col justify-between space-y-4 group hover:border-[var(--accent-border)] hover:shadow-[0_0_15px_var(--accent-glow)] overflow-hidden"
             >
               {/* Glow superior decorativo */}
@@ -216,9 +254,9 @@ export const ServicesSection = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -10,6 +10,11 @@ export function LanguageSwitcher() {
   const router = useRouter();
 
   const handleLanguageChange = (nextLocale: "es" | "en") => {
+    if (typeof document !== "undefined") {
+      const currentTheme = document.documentElement.dataset.theme || localStorage.getItem("theme") || "dark";
+      document.documentElement.dataset.theme = currentTheme;
+      document.documentElement.classList.toggle("dark", currentTheme === "dark");
+    }
     router.replace(pathname, { locale: nextLocale });
   };
 

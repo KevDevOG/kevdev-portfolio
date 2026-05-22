@@ -44,6 +44,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       }
       
       root.classList.add(computedTheme);
+      root.setAttribute("data-theme", computedTheme);
+      root.style.colorScheme = computedTheme;
       setResolvedTheme(computedTheme);
     }
 
