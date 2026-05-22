@@ -85,7 +85,7 @@ export const ProjectsSection = () => {
               <Card className="dashboard-card relative overflow-hidden bg-[var(--bg-card)] flex flex-col justify-between h-full p-5 transition-all duration-300 group hover:border-[var(--accent-color)] hover:shadow-[0_8px_30px_-10px_var(--accent-glow)] gap-4">
                 <div className="space-y-3 relative z-10">
                 {/* Cabecera del Proyecto */}
-                <div className="flex items-center justify-between font-mono text-[9px]">
+                <div className="flex items-center justify-between font-mono text-xs">
                   <Badge className={`uppercase tracking-widest px-2 py-0.5 border font-bold ${proj.badgeClass}`}>
                     {proj.status}
                   </Badge>
@@ -94,11 +94,11 @@ export const ProjectsSection = () => {
                 
                 {/* Título y Descripción */}
                 <div className="space-y-1">
-                  <h4 className="text-xs sm:text-sm font-bold text-[var(--text-primary)] tracking-tight flex items-center gap-2">
+                  <h4 className="text-base sm:text-lg font-bold text-[var(--text-primary)] tracking-tight flex items-center gap-2">
                     <Icon className="h-4 w-4 text-[var(--accent-color)] shrink-0" />
                     <span>{proj.title}</span>
                   </h4>
-                  <p className="text-[11px] text-[var(--text-secondary)] font-sans leading-relaxed">
+                  <p className="text-sm sm:text-base text-[var(--text-secondary)] font-sans leading-relaxed">
                     {proj.description}
                   </p>
                 </div>
@@ -107,10 +107,10 @@ export const ProjectsSection = () => {
               {/* Caja Visual Vacía e Intencional */}
               <div className="border border-dashed border-[var(--border-color)]/60 rounded-lg bg-[var(--bg-canvas)]/30 h-32 md:h-36 w-full flex flex-col items-center justify-center p-3 text-center transition-colors duration-300 group-hover:bg-[var(--bg-canvas)]/50 select-none shrink-0">
                 <Icon className="h-5 w-5 text-[var(--text-muted)] opacity-60 mb-1.5" />
-                <span className="font-mono text-[9px] text-[var(--text-muted)] uppercase tracking-wider block">
+                <span className="font-mono text-xs text-[var(--text-muted)] uppercase tracking-wider block">
                   {t("preview_soon")}
                 </span>
-                <span className="font-mono text-[7px] text-[var(--text-muted)] uppercase opacity-60 tracking-wider">
+                <span className="font-mono text-xs text-[var(--text-muted)] uppercase opacity-60 tracking-wider">
                   {proj.progressText}
                 </span>
               </div>
@@ -119,14 +119,14 @@ export const ProjectsSection = () => {
               <div className="space-y-2 mt-auto">
                 <div className="flex flex-wrap gap-1">
                   {proj.tech.map((techName) => (
-                    <span key={techName} className="font-mono text-[8px] text-[var(--text-secondary)] bg-[var(--bg-canvas)] px-1.5 py-0.5 rounded border border-[var(--border-color)] font-semibold">
+                    <span key={techName} className="font-mono text-xs text-[var(--text-secondary)] bg-[var(--bg-canvas)] px-1.5 py-0.5 rounded border border-[var(--border-color)] font-semibold">
                       {techName}
                     </span>
                   ))}
                 </div>
 
-                <div className="font-mono text-[9px] bg-[var(--bg-canvas)] border border-[var(--border-color)] rounded p-2 space-y-1 text-[var(--text-muted)]">
-                  <div className="flex justify-between text-[8px]">
+                <div className="font-mono text-xs bg-[var(--bg-canvas)] border border-[var(--border-color)] rounded p-2 space-y-1 text-[var(--text-muted)]">
+                  <div className="flex justify-between text-xs">
                     <span>STATUS_LOG:</span>
                     <span className="text-[var(--accent-color)] font-bold">{proj.progressText}</span>
                   </div>

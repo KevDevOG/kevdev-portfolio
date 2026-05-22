@@ -52,23 +52,23 @@ export const StackSection = () => {
             <div>
               {/* Encabezado de Columna */}
               <div className="flex items-center justify-between border-b border-[var(--border-color)] pb-2 mb-2">
-                <span className={`font-mono text-[10px] font-bold tracking-widest ${col.color}`}>
+                <span className={`font-mono text-sm font-bold tracking-widest ${col.color}`}>
                   {col.title}
                 </span>
-                <span className="font-mono text-[8px] text-[var(--text-muted)]">
+                <span className="font-mono text-xs text-[var(--text-muted)]">
                   [0{idx + 1}]
                 </span>
               </div>
               
               {/* Descripción */}
-              <p className="text-[10px] font-sans leading-relaxed text-[var(--text-secondary)] mb-3 opacity-90">
+              <p className="text-sm font-sans leading-relaxed text-[var(--text-secondary)] mb-3 opacity-90">
                 {col.desc}
               </p>
 
               {/* Lista de Skills */}
               <ul className="space-y-2 mt-3">
                 {col.skills.map((skill) => (
-                  <li key={skill} className="flex items-center gap-2 font-mono text-[11px] text-[var(--text-secondary)]">
+                  <li key={skill} className="flex items-center gap-2 font-mono text-sm text-[var(--text-secondary)]">
                     <span className="h-1 w-1 bg-[var(--text-muted)] rounded-full" />
                     <span>{skill}</span>
                   </li>
@@ -77,7 +77,7 @@ export const StackSection = () => {
             </div>
 
             {/* Estado de carga decorativo de la columna */}
-            <div className="pt-2 font-mono text-[8px] text-[var(--text-muted)] flex justify-between items-center border-t border-[var(--border-color)]">
+            <div className="pt-2 font-mono text-xs text-[var(--text-muted)] flex justify-between items-center border-t border-[var(--border-color)]">
               <span>STATUS:</span>
               <span className="text-emerald-600 dark:text-emerald-400 font-bold">COMPILED</span>
             </div>

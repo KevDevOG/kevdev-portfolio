@@ -51,23 +51,23 @@ export const MethodSection = () => {
             <div className="space-y-3">
               {/* Indicador de número */}
               <div className="flex items-center justify-between border-b border-[var(--border-color)] pb-2">
-                <span className="font-mono text-xs font-black text-[var(--accent-color)]">
+                <span className="font-mono text-sm font-black text-[var(--accent-color)]">
                   {`STAGE_${step.num}`}
                 </span>
-                <span className="font-mono text-[9px] text-[var(--text-muted)]">// OK</span>
+                <span className="font-mono text-xs text-[var(--text-muted)]">// OK</span>
               </div>
 
               {/* Título y descripción */}
-              <h4 className="text-sm font-bold text-[var(--text-primary)] tracking-tight">
+              <h4 className="text-base font-bold text-[var(--text-primary)] tracking-tight">
                 {step.title}
               </h4>
-              <p className="text-[11px] text-[var(--text-secondary)] font-sans leading-relaxed">
+              <p className="text-sm text-[var(--text-secondary)] font-sans leading-relaxed">
                 {step.desc}
               </p>
             </div>
 
             {/* Marcador decorativo inferior */}
-            <div className="pt-2 flex justify-between font-mono text-[8px] text-[var(--text-muted)] border-t border-[var(--border-color)]">
+            <div className="pt-2 flex justify-between font-mono text-xs text-[var(--text-muted)] border-t border-[var(--border-color)]">
               <span>SUB_PROCESS: OK</span>
               <span className="text-emerald-600 dark:text-emerald-400 font-bold">VERIFIED</span>
             </div>

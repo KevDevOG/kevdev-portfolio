@@ -97,20 +97,20 @@ export const ServicesSection = () => {
                 <div className="space-y-3">
                 {/* Header decorativo */}
                 <div className="flex items-center justify-between border-b border-[var(--border-color)] pb-2">
-                  <span className="font-mono text-[10px] text-[var(--accent-color)] font-bold">
+                  <span className="font-mono text-sm text-[var(--accent-color)] font-bold">
                     {`SVC_0${idx + 1}`}
                   </span>
-                  <span className="inline-flex items-center rounded bg-[var(--bg-accent-badge)] px-2 py-0.5 text-[10px] font-mono font-bold text-[var(--text-accent-badge)] border border-[var(--accent-border)] transition-all duration-300 group-hover:shadow-[0_0_8px_var(--accent-glow)] group-hover:border-[var(--accent-color)]">
+                  <span className="inline-flex items-center rounded bg-[var(--bg-accent-badge)] px-2 py-0.5 text-sm font-mono font-bold text-[var(--text-accent-badge)] border border-[var(--accent-border)] transition-all duration-300 group-hover:shadow-[0_0_8px_var(--accent-glow)] group-hover:border-[var(--accent-color)]">
                     {service.price}
                   </span>
                 </div>
 
                 {/* Contenido principal */}
                 <div className="space-y-2 pt-1">
-                  <h4 className="text-sm font-bold text-[var(--text-primary)] tracking-tight">
+                  <h4 className="text-lg font-bold text-[var(--text-primary)] tracking-tight">
                     {service.title}
                   </h4>
-                  <p className="text-[11px] text-[var(--text-secondary)] font-sans leading-relaxed">
+                  <p className="text-sm sm:text-base text-[var(--text-secondary)] font-sans leading-relaxed">
                     {service.desc}
                   </p>
                 </div>
@@ -118,10 +118,10 @@ export const ServicesSection = () => {
 
               {/* Footer de la card: Ideal para */}
               <div className="pt-3 border-t border-[var(--border-color)]/60 mt-auto">
-                <span className="block font-mono text-[9px] text-[var(--text-muted)] uppercase tracking-wider mb-1">
+                <span className="block font-mono text-xs text-[var(--text-muted)] uppercase tracking-wider mb-1">
                   // {t("ideal_label")}
                 </span>
-                <p className="text-[10px] text-[var(--text-secondary)] font-sans italic leading-snug">
+                <p className="text-sm text-[var(--text-secondary)] font-sans italic leading-snug">
                   {service.ideal}
                 </p>
               </div>
@@ -146,25 +146,25 @@ export const ServicesSection = () => {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
             <div className="space-y-2.5 flex-1">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="font-mono text-[9px] text-[var(--accent-color)] font-bold uppercase tracking-wider">
+                <span className="font-mono text-xs text-[var(--accent-color)] font-bold uppercase tracking-wider">
                   SVC_EXTRA
                 </span>
-                <span className="inline-flex items-center rounded-full bg-emerald-100 dark:bg-emerald-950/40 px-2.5 py-0.5 text-[9px] font-mono font-bold text-emerald-800 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-900/60 uppercase">
+                <span className="inline-flex items-center rounded-full bg-emerald-100 dark:bg-emerald-950/40 px-2.5 py-0.5 text-xs font-mono font-bold text-emerald-800 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-900/60 uppercase">
                   {t("extra_recommended_label")}
                 </span>
               </div>
               
               <div className="space-y-1">
-                <h4 className="text-sm font-bold text-[var(--text-primary)] tracking-tight">
+                <h4 className="text-lg font-bold text-[var(--text-primary)] tracking-tight">
                   {maintenanceService.title}
                 </h4>
-                <p className="text-[11px] text-[var(--text-secondary)] font-sans leading-relaxed">
+                <p className="text-sm sm:text-base text-[var(--text-secondary)] font-sans leading-relaxed">
                   {maintenanceService.desc}
                 </p>
               </div>
               
-              <div className="text-[10px] text-[var(--text-secondary)] font-sans italic leading-snug pt-1">
-                <span className="font-mono text-[9px] text-[var(--text-muted)] not-italic block uppercase tracking-wider mb-1">
+              <div className="text-sm text-[var(--text-secondary)] font-sans italic leading-snug pt-1">
+                <span className="font-mono text-xs text-[var(--text-muted)] not-italic block uppercase tracking-wider mb-1">
                   // {t("ideal_label")}
                 </span>
                 {maintenanceService.ideal}
@@ -173,13 +173,13 @@ export const ServicesSection = () => {
             
             {/* Caja de precio en el lateral */}
             <div className="flex flex-col items-start md:items-end justify-center bg-[var(--bg-canvas)]/50 border border-[var(--border-color)] rounded-lg p-4 min-w-[180px] shrink-0 space-y-2">
-              <span className="font-mono text-[10px] text-[var(--text-muted)] uppercase tracking-wider block">
+              <span className="font-mono text-xs text-[var(--text-muted)] uppercase tracking-wider block">
                 PRICE_RATE:
               </span>
-              <span className="text-lg font-black text-[var(--text-primary)] font-mono">
+              <span className="text-xl font-black text-[var(--text-primary)] font-mono">
                 {maintenanceService.price}
               </span>
-              <span className="font-mono text-[8px] text-[var(--text-muted)]">
+              <span className="font-mono text-xs text-[var(--text-muted)]">
                 // auto_billing_off
               </span>
             </div>
@@ -189,7 +189,7 @@ export const ServicesSection = () => {
 
       {/* Nota de precios discreta */}
       <div className="mt-4 flex justify-end">
-        <p className="text-[10px] text-[var(--text-muted)] font-mono italic max-w-xl text-right">
+        <p className="text-xs text-[var(--text-muted)] font-mono italic max-w-xl text-right">
           * {t("price_note")}
         </p>
       </div>
@@ -197,10 +197,10 @@ export const ServicesSection = () => {
       {/* Mini sección de valores (Principios Kev Dev) */}
       <div className="mt-12 pt-8 border-t border-[var(--border-color)]">
         <div className="mb-6 space-y-1">
-          <h4 className="font-mono text-xs font-bold text-[var(--text-muted)] tracking-wider uppercase">
+          <h4 className="font-mono text-sm font-bold text-[var(--text-muted)] tracking-wider uppercase">
             // {tBrand("title")}
           </h4>
-          <p className="text-xs text-[var(--text-secondary)] font-sans">
+          <p className="text-sm text-[var(--text-secondary)] font-sans">
             {tBrand("subtitle")}
           </p>
         </div>
@@ -228,13 +228,13 @@ export const ServicesSection = () => {
               
               {/* Cabecera técnica */}
               <div className="flex items-center justify-between border-b border-[var(--border-color)]/60 pb-2">
-                <span className="font-mono text-[9px] text-[var(--text-muted)] tracking-wider">
+                <span className="font-mono text-xs text-[var(--text-muted)] tracking-wider">
                   {value.code}
                 </span>
                 {/* Status Dot */}
                 <div className="flex items-center gap-1">
                   <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent-color)] animate-pulse" />
-                  <span className="font-mono text-[8px] text-[var(--text-muted)] uppercase">ACTIVE</span>
+                  <span className="font-mono text-xs text-[var(--text-muted)] uppercase">ACTIVE</span>
                 </div>
               </div>
 
@@ -246,10 +246,10 @@ export const ServicesSection = () => {
                 </div>
 
                 <div className="space-y-1">
-                  <h5 className="font-bold text-xs text-[var(--text-primary)] tracking-tight">
+                  <h5 className="font-bold text-base text-[var(--text-primary)] tracking-tight">
                     {value.title}
                   </h5>
-                  <p className="text-[10px] text-[var(--text-secondary)] font-sans leading-snug">
+                  <p className="text-sm text-[var(--text-secondary)] font-sans leading-snug">
                     {value.desc}
                   </p>
                 </div>

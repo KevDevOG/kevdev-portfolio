@@ -145,12 +145,12 @@ export const TimelineSection = () => {
 
             {/* 4. Logs Header Row */}
             <div 
-              className="timeline-header flex flex-wrap items-center gap-2.5 font-mono text-[9px] min-h-[24px]"
+              className="timeline-header flex flex-wrap items-center gap-2.5 font-mono text-xs min-h-[24px]"
             >
-              <span className="inline-flex items-center rounded bg-blue-500/10 dark:bg-cyan-500/10 px-2 py-0.5 font-mono text-[9px] font-bold text-blue-600 dark:text-cyan-400 border border-blue-500/20 dark:border-cyan-500/30 uppercase tracking-wider">
+              <span className="inline-flex items-center rounded bg-blue-500/10 dark:bg-cyan-500/10 px-2 py-0.5 font-mono text-xs font-bold text-blue-600 dark:text-cyan-400 border border-blue-500/20 dark:border-cyan-500/30 uppercase tracking-wider">
                 {milestone.timestamp}
               </span>
-              <Badge className="bg-[var(--bg-card)] border-[var(--border-color)] text-[var(--text-secondary)] text-[8px] py-0.5 px-1.5 font-bold tracking-widest uppercase">
+              <Badge className="bg-[var(--bg-card)] border-[var(--border-color)] text-[var(--text-secondary)] text-xs py-0.5 px-1.5 font-bold tracking-widest uppercase">
                 {milestone.event}
               </Badge>
               <span className="text-[var(--text-muted)] font-mono">// STATUS: STABLE</span>
@@ -161,17 +161,17 @@ export const TimelineSection = () => {
               className="timeline-card"
             >
               <Card className="dashboard-card max-w-3xl py-3 px-4 transition-all duration-300">
-                <h4 className="text-xs font-bold text-[var(--text-primary)] tracking-tight font-sans">
+                <h4 className="text-base font-bold text-[var(--text-primary)] tracking-tight font-sans">
                   {milestone.title}
                 </h4>
-                <p className="text-[11px] text-[var(--text-secondary)] font-sans leading-relaxed mt-1">
+                <p className="text-base text-[var(--text-secondary)] font-sans leading-relaxed mt-1">
                   {milestone.desc}
                 </p>
 
                 {/* Tech badges */}
                 <div className="flex flex-wrap gap-1 pt-2">
                   {milestone.tags.map((tag) => (
-                    <Badge key={tag} className="bg-[var(--bg-canvas)] border-[var(--border-color)] text-[8px] text-[var(--text-muted)] py-0 px-1.5 font-semibold">
+                    <Badge key={tag} className="bg-[var(--bg-canvas)] border-[var(--border-color)] text-xs text-[var(--text-muted)] py-0 px-1.5 font-semibold">
                       {tag}
                     </Badge>
                   ))}

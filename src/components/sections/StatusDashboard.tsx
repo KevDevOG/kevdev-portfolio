@@ -36,20 +36,20 @@ export const StatusDashboard = () => {
         <motion.div variants={itemVariants} className="col-span-1">
           <Card className="dashboard-card p-4 sm:p-5 xl:p-6 space-y-4 flex flex-col justify-between h-full">
             <div className="space-y-2">
-              <span className="font-mono text-[9px] text-[var(--text-muted)] uppercase tracking-widest block">
+              <span className="font-mono text-xs text-[var(--text-muted)] uppercase tracking-widest block">
                 {t("formation_title")}
               </span>
-              <h3 className="text-lg xl:text-xl font-bold text-[var(--text-primary)] mt-1 font-sans leading-tight">
+              <h3 className="text-xl xl:text-2xl font-bold text-[var(--text-primary)] mt-1 font-sans leading-tight">
                 {t("formation_val")}
               </h3>
-              <span className="text-[10px] md:text-xs text-[var(--text-muted)] font-mono block mt-1">
+              <span className="text-xs md:text-sm text-[var(--text-muted)] font-mono block mt-1">
                 {t("formation_desc")}
               </span>
             </div>
             
             {/* Barra de progreso de carga */}
             <div className="space-y-1">
-              <div className="flex justify-between font-mono text-[9px] text-[var(--text-muted)]">
+              <div className="flex justify-between font-mono text-xs text-[var(--text-muted)]">
                 <span>PROGRESS_LOAD:</span>
                 <span className="text-[var(--accent-color)] font-bold">92%</span>
               </div>
@@ -65,7 +65,7 @@ export const StatusDashboard = () => {
             </div>
 
             {/* Diagnostics system panel */}
-            <div className="bg-[var(--bg-canvas)] border border-[var(--border-color)] rounded-lg p-3 font-mono text-[9px] space-y-2">
+            <div className="bg-[var(--bg-canvas)] border border-[var(--border-color)] rounded-lg p-3 font-mono text-xs space-y-2">
               <div className="flex items-center justify-between border-b border-[var(--border-color)]/60 pb-1">
                 <span className="text-[var(--text-primary)] font-bold">SYS_DIAGNOSTICS //</span>
                 <span className="text-[var(--accent-color)] font-bold">STATUS_OK</span>
@@ -88,7 +88,7 @@ export const StatusDashboard = () => {
                   <span className="text-[var(--text-primary)] font-semibold">LPA_GC</span>
                 </div>
               </div>
-              <div className="font-mono text-[8px] text-[var(--text-muted)] space-y-0.5 border-t border-[var(--border-color)]/40 pt-1.5">
+              <div className="font-mono text-xs text-[var(--text-muted)] space-y-0.5 border-t border-[var(--border-color)]/40 pt-1.5">
                 <div>&gt; Loading module DAW_2... SUCCESS</div>
                 <div>&gt; Establishing secure connection... ESTABLISHED</div>
               </div>
@@ -100,13 +100,13 @@ export const StatusDashboard = () => {
         <motion.div variants={itemVariants} className="col-span-1">
           <Card className="dashboard-card p-4 sm:p-5 xl:p-6 space-y-4 flex flex-col justify-between h-full">
             <div>
-              <span className="font-mono text-[9px] text-[var(--text-muted)] uppercase tracking-widest block">
+              <span className="font-mono text-xs text-[var(--text-muted)] uppercase tracking-widest block">
                 {t("stack_title")}
               </span>
-              <h3 className="text-lg xl:text-xl font-bold text-[var(--text-primary)] mt-1 font-sans leading-tight">
+              <h3 className="text-xl xl:text-2xl font-bold text-[var(--text-primary)] mt-1 font-sans leading-tight">
                 {t("stack_val")}
               </h3>
-              <span className="text-[10px] md:text-xs text-[var(--text-muted)] font-mono block mt-1">
+              <span className="text-xs md:text-sm text-[var(--text-muted)] font-mono block mt-1">
                 {t("stack_desc")}
               </span>
             </div>
@@ -114,11 +114,11 @@ export const StatusDashboard = () => {
             <div className="space-y-3 pt-1">
               <div>
                 <div className="flex items-center justify-between border-b border-[var(--border-color)]/40 pb-0.5 mb-1.5">
-                  <span className="font-mono text-[8px] text-[var(--accent-color)] uppercase tracking-wider font-semibold">FRONTEND</span>
+                  <span className="font-mono text-xs text-[var(--accent-color)] uppercase tracking-wider font-semibold">FRONTEND</span>
                 </div>
                 <div className="flex flex-wrap gap-1">
                   {["HTML5", "CSS3", "JS ES6+", "TS", "React", "Next.js", "Tailwind"].map((tech) => (
-                    <span key={tech} className="text-[9px] px-1.5 py-0.5 rounded font-mono bg-[var(--bg-canvas)] border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--accent-color)] hover:border-[var(--accent-color)]/30 transition-all duration-200">
+                    <span key={tech} className="text-xs px-1.5 py-0.5 rounded font-mono bg-[var(--bg-canvas)] border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--accent-color)] hover:border-[var(--accent-color)]/30 transition-all duration-200">
                       {tech}
                     </span>
                   ))}
@@ -126,11 +126,11 @@ export const StatusDashboard = () => {
               </div>
               <div>
                 <div className="flex items-center justify-between border-b border-[var(--border-color)]/40 pb-0.5 mb-1.5">
-                  <span className="font-mono text-[8px] text-[var(--accent-color)] uppercase tracking-wider font-semibold">BACKEND</span>
+                  <span className="font-mono text-xs text-[var(--accent-color)] uppercase tracking-wider font-semibold">BACKEND</span>
                 </div>
                 <div className="flex flex-wrap gap-1">
                   {["Node.js", "API REST", "Server Actions", "Spring Boot"].map((tech) => (
-                    <span key={tech} className="text-[9px] px-1.5 py-0.5 rounded font-mono bg-[var(--bg-canvas)] border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--accent-color)] hover:border-[var(--accent-color)]/30 transition-all duration-200">
+                    <span key={tech} className="text-xs px-1.5 py-0.5 rounded font-mono bg-[var(--bg-canvas)] border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--accent-color)] hover:border-[var(--accent-color)]/30 transition-all duration-200">
                       {tech}
                     </span>
                   ))}
@@ -139,11 +139,11 @@ export const StatusDashboard = () => {
               <div className="grid grid-cols-2 gap-3 pt-0.5">
                 <div>
                   <div className="flex items-center justify-between border-b border-[var(--border-color)]/40 pb-0.5 mb-1.5">
-                    <span className="font-mono text-[8px] text-[var(--accent-color)] uppercase tracking-wider font-semibold">DATABASES</span>
+                    <span className="font-mono text-xs text-[var(--accent-color)] uppercase tracking-wider font-semibold">DATABASES</span>
                   </div>
                   <div className="flex flex-wrap gap-1">
                     {["MySQL", "Postgres", "Supabase", "SQL"].map((tech) => (
-                      <span key={tech} className="text-[9px] px-1.5 py-0.5 rounded font-mono bg-[var(--bg-canvas)] border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--accent-color)] hover:border-[var(--accent-color)]/30 transition-all duration-200">
+                      <span key={tech} className="text-xs px-1.5 py-0.5 rounded font-mono bg-[var(--bg-canvas)] border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--accent-color)] hover:border-[var(--accent-color)]/30 transition-all duration-200">
                         {tech}
                       </span>
                     ))}
@@ -151,11 +151,11 @@ export const StatusDashboard = () => {
                 </div>
                 <div>
                   <div className="flex items-center justify-between border-b border-[var(--border-color)]/40 pb-0.5 mb-1.5">
-                    <span className="font-mono text-[8px] text-[var(--accent-color)] uppercase tracking-wider font-semibold">TOOLS</span>
+                    <span className="font-mono text-xs text-[var(--accent-color)] uppercase tracking-wider font-semibold">TOOLS</span>
                   </div>
                   <div className="flex flex-wrap gap-1">
                     {["Git", "GitHub", "Vercel", "VS Code"].map((tech) => (
-                      <span key={tech} className="text-[9px] px-1.5 py-0.5 rounded font-mono bg-[var(--bg-canvas)] border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--accent-color)] hover:border-[var(--accent-color)]/30 transition-all duration-200">
+                      <span key={tech} className="text-xs px-1.5 py-0.5 rounded font-mono bg-[var(--bg-canvas)] border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--accent-color)] hover:border-[var(--accent-color)]/30 transition-all duration-200">
                         {tech}
                       </span>
                     ))}

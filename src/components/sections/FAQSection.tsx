@@ -45,14 +45,14 @@ export const FAQSection = () => {
                 className="w-full text-left px-4 py-4 flex items-center justify-between focus:outline-none"
               >
                 <div className="flex items-center gap-3">
-                  <span className="font-mono text-[10px] text-[var(--accent-color)] font-bold">
+                  <span className="font-mono text-sm text-[var(--accent-color)] font-bold">
                     {qCode}
                   </span>
-                  <span className="text-sm font-bold text-[var(--text-primary)]">
+                  <span className="text-lg font-bold text-[var(--text-primary)]">
                     {faq.q}
                   </span>
                 </div>
-                <span className="font-mono text-[10px] text-[var(--text-muted)]">
+                <span className="font-mono text-xs text-[var(--text-muted)]">
                   {isOpen ? "[-]" : "[+]"}
                 </span>
               </button>
@@ -67,7 +67,7 @@ export const FAQSection = () => {
                     className="overflow-hidden"
                   >
                     <div className="px-4 pb-4 pt-1 border-t border-[var(--border-color)]/30">
-                      <p className="text-xs text-[var(--text-secondary)] font-sans leading-relaxed">
+                      <p className="text-base text-[var(--text-secondary)] font-sans leading-relaxed">
                         {faq.a}
                       </p>
                     </div>

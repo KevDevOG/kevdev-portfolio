@@ -55,11 +55,11 @@ export const FeaturedProjectSection = () => {
             className="lg:col-span-6 space-y-6"
           >
             <div className="space-y-2">
-              <div className="flex flex-wrap items-center gap-2 font-mono text-[9px]">
+              <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
                 <Badge className="bg-emerald-100 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-400 border-emerald-300 dark:border-emerald-900/60 uppercase tracking-widest px-2 py-0.5 font-bold">
                   {p("status_stable")}
                 </Badge>
-                <span className="inline-flex items-center rounded bg-blue-100 dark:bg-blue-950/40 px-2 py-0.5 text-[9px] font-mono font-bold text-blue-800 dark:text-blue-400 border border-blue-300 dark:border-blue-900/60 uppercase">
+                <span className="inline-flex items-center rounded bg-blue-100 dark:bg-blue-950/40 px-2 py-0.5 text-xs font-mono font-bold text-blue-800 dark:text-blue-400 border border-blue-300 dark:border-blue-900/60 uppercase">
                   {t("real_project")}
                 </span>
                 <span className="text-[var(--border-color)]">|</span>
@@ -70,19 +70,19 @@ export const FeaturedProjectSection = () => {
                 {project.title}
               </h3>
               
-              <p className="text-xs text-[var(--text-secondary)] leading-relaxed font-sans pt-2">
+              <p className="text-base text-[var(--text-secondary)] leading-relaxed font-sans pt-2">
                 {project.longDescription}
               </p>
             </div>
 
             {/* Fila de Tecnologías */}
             <div className="space-y-2.5">
-              <span className="font-mono text-[9px] text-[var(--text-muted)] uppercase tracking-wider block">
+              <span className="font-mono text-xs text-[var(--text-muted)] uppercase tracking-wider block">
                 STACK_ARCH:
               </span>
               <div className="flex flex-wrap gap-1.5">
                 {project.technologies.map((tech) => (
-                  <Badge key={tech} className="bg-[var(--bg-canvas)] border-[var(--border-color)] text-[10px] text-[var(--text-secondary)] py-0.5 px-2 font-semibold">
+                  <Badge key={tech} className="bg-[var(--bg-canvas)] border-[var(--border-color)] text-xs text-[var(--text-secondary)] py-0.5 px-2 font-semibold">
                     {tech}
                   </Badge>
                 ))}
@@ -95,7 +95,7 @@ export const FeaturedProjectSection = () => {
                 href="https://garagestudios.es"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-mono text-xs font-bold px-4 py-2.5 rounded transition-all duration-150 shadow-lg shadow-blue-900/20 cursor-pointer"
+                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-mono text-base font-bold px-4 py-2.5 rounded transition-all duration-150 shadow-lg shadow-blue-900/20 cursor-pointer"
               >
                 <ExternalLink className="h-3.5 w-3.5" />
                 <span>DEMO_ONLINE</span>
@@ -104,7 +104,7 @@ export const FeaturedProjectSection = () => {
                 href="https://github.com/KevDevOG/garage-studios"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-[var(--bg-card)] hover:bg-[var(--bg-canvas)] border border-[var(--border-color)] text-[var(--text-primary)] font-mono text-xs font-bold px-4 py-2.5 rounded transition-all duration-150 cursor-pointer"
+                className="flex items-center gap-2 bg-[var(--bg-card)] hover:bg-[var(--bg-canvas)] border border-[var(--border-color)] text-[var(--text-primary)] font-mono text-base font-bold px-4 py-2.5 rounded transition-all duration-150 cursor-pointer"
               >
                 <GitBranch className="h-3.5 w-3.5" />
                 <span>GITHUB_REPO</span>
@@ -113,14 +113,14 @@ export const FeaturedProjectSection = () => {
 
             {/* Features log */}
             <div className="space-y-3 pt-4 border-t border-[var(--border-color)]/60">
-              <h4 className="text-[10px] font-mono text-[var(--text-muted)] uppercase tracking-wider flex items-center gap-1.5">
+              <h4 className="text-xs font-mono text-[var(--text-muted)] uppercase tracking-wider flex items-center gap-1.5">
                 <Terminal className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
                 <span>CORE_FEATURES.log</span>
               </h4>
-              <ul className="space-y-2.5 text-xs text-[var(--text-secondary)] font-sans">
+              <ul className="space-y-2.5 text-base text-[var(--text-secondary)] font-sans">
                 {project.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-2.5">
-                    <span className="font-mono text-blue-600 dark:text-blue-500 text-[10px] pt-0.5 select-none font-bold">{`0${idx + 1}`}</span>
+                    <span className="font-mono text-blue-600 dark:text-blue-500 text-xs pt-0.5 select-none font-bold">{`0${idx + 1}`}</span>
                     <span className="leading-snug">{feature}</span>
                   </li>
                 ))}
@@ -137,7 +137,7 @@ export const FeaturedProjectSection = () => {
             className="lg:col-span-6 space-y-6 flex flex-col justify-between"
           >
             <div className="space-y-3">
-              <h4 className="text-[10px] font-mono text-[var(--text-muted)] uppercase tracking-wider flex items-center gap-1.5">
+              <h4 className="text-xs font-mono text-[var(--text-muted)] uppercase tracking-wider flex items-center gap-1.5">
                 <Terminal className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
                 <span>{t("preview_label")}.sh</span>
               </h4>
@@ -158,14 +158,14 @@ export const FeaturedProjectSection = () => {
                   </div>
                   
                   {/* Barra de dirección */}
-                  <div className="flex items-center justify-center bg-[var(--bg-card)] border border-[var(--border-color)] rounded px-3 py-0.5 text-[9px] font-mono text-[var(--text-muted)] w-2/3 truncate text-center select-all">
+                  <div className="flex items-center justify-center bg-[var(--bg-card)] border border-[var(--border-color)] rounded px-3 py-0.5 text-xs font-mono text-[var(--text-muted)] w-2/3 truncate text-center select-all">
                     https://garagestudios.es
                   </div>
                   
                   {/* Estado */}
                   <div className="flex items-center gap-1">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="font-mono text-[8px] text-[var(--text-muted)] uppercase tracking-wider">{t("in_production")}</span>
+                    <span className="font-mono text-xs text-[var(--text-muted)] uppercase tracking-wider">{t("in_production")}</span>
                   </div>
                 </div>
                 
@@ -187,14 +187,14 @@ export const FeaturedProjectSection = () => {
                           <Terminal className="h-5 w-5" />
                         </div>
                         <div className="space-y-1">
-                          <p className="font-mono text-xs font-bold text-[var(--text-primary)]">
+                          <p className="font-mono text-base font-bold text-[var(--text-primary)]">
                             {t("preview_pending")}
                           </p>
-                          <p className="text-[10px] text-[var(--text-secondary)] font-sans max-w-xs leading-normal">
+                          <p className="text-xs text-[var(--text-secondary)] font-sans max-w-xs leading-normal">
                             {t("preview_instructions")}
                           </p>
                         </div>
-                        <span className="inline-block font-mono text-[8px] text-[var(--text-muted)] border border-dashed border-[var(--border-color)] px-2 py-0.5 rounded">
+                        <span className="inline-block font-mono text-xs text-[var(--text-muted)] border border-dashed border-[var(--border-color)] px-2 py-0.5 rounded">
                           // public/projects/garage-studios-preview.png
                         </span>
                       </div>
@@ -206,11 +206,11 @@ export const FeaturedProjectSection = () => {
 
             {/* System Learnings */}
             <div className="space-y-3 border-t border-[var(--border-color)] pt-6 mt-auto">
-              <h4 className="text-[10px] font-mono text-[var(--text-muted)] uppercase tracking-wider flex items-center gap-1.5">
-                <Shield className="h-3.5 w-3.5 text-purple-600 dark:text-purple-400" />
+              <h4 className="text-xs font-mono text-[var(--text-muted)] uppercase tracking-wider flex items-center gap-1.5">
+                <Shield className="h-3.5 w-3.5 text-purple-600 dark:text-blue-400" />
                 <span>SYSTEM_LEARNINGS.db</span>
               </h4>
-              <ul className="space-y-2 text-xs text-[var(--text-secondary)] font-sans">
+              <ul className="space-y-2 text-base text-[var(--text-secondary)] font-sans">
                 {project.learnings.map((learning, idx) => (
                   <li key={idx} className="flex items-center gap-2">
                     <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-500/80 shrink-0" />

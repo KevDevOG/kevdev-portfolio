@@ -123,9 +123,9 @@ export const ContactSection = () => {
                 <Card className="dashboard-card flex flex-col justify-between h-36 p-5 transition-colors duration-300 bg-[var(--bg-canvas)] border-[var(--border-color)]">
                   <div className="space-y-3">
                     {/* Encabezado de la Tarjeta */}
-                    <div className="flex items-center justify-between font-mono text-[9px]">
+                    <div className="flex items-center justify-between font-mono text-xs">
                       <span className="text-[var(--text-muted)] uppercase tracking-widest">{node.title}</span>
-                      <Badge className="bg-[var(--bg-card)] border-[var(--border-color)] text-[8px] py-0 px-1 text-[var(--text-muted)] font-mono tracking-widest uppercase">
+                      <Badge className="bg-[var(--bg-card)] border-[var(--border-color)] text-[10px] py-0 px-1 text-[var(--text-muted)] font-mono tracking-widest uppercase">
                         PENDING
                       </Badge>
                     </div>
@@ -133,14 +133,14 @@ export const ContactSection = () => {
                     {/* Icono y Valor */}
                     <div className="flex items-center gap-3">
                       <Icon className={`h-5 w-5 shrink-0 ${node.accent}`} />
-                      <h4 className="text-sm font-bold text-[var(--text-muted)] tracking-tight">
+                      <h4 className="text-base font-bold text-[var(--text-muted)] tracking-tight">
                         {node.val}
                       </h4>
                     </div>
                   </div>
 
                   {/* Breve descripción */}
-                  <p className="text-[10px] text-[var(--text-muted)] font-sans leading-relaxed mt-2 line-clamp-2">
+                  <p className="text-sm text-[var(--text-muted)] font-sans leading-relaxed mt-2 line-clamp-2">
                     {node.desc}
                   </p>
                 </Card>
@@ -159,9 +159,9 @@ export const ContactSection = () => {
               <Card className={`dashboard-card flex flex-col justify-between h-36 p-5 transition-all duration-200 border-[var(--border-color)] ${node.borderColor}`}>
                 <div className="space-y-3">
                   {/* Encabezado de la Tarjeta */}
-                  <div className="flex items-center justify-between font-mono text-[9px]">
+                  <div className="flex items-center justify-between font-mono text-xs">
                     <span className="text-[var(--text-muted)] uppercase tracking-widest">{node.title}</span>
-                    <Badge className="bg-[var(--bg-canvas)] border-[var(--border-color)] text-[8px] py-0 px-1 text-[var(--text-muted)] font-mono tracking-widest flex items-center gap-1 group-hover:text-[var(--text-primary)] transition-colors">
+                    <Badge className="bg-[var(--bg-canvas)] border-[var(--border-color)] text-xs py-0 px-1 text-[var(--text-muted)] font-mono tracking-widest flex items-center gap-1 group-hover:text-[var(--text-primary)] transition-colors">
                       <span>OPEN</span>
                       <ArrowUpRight className="h-2 w-2" />
                     </Badge>
@@ -170,14 +170,14 @@ export const ContactSection = () => {
                   {/* Icono y Valor */}
                   <div className="flex items-center gap-3">
                     <Icon className={`h-5 w-5 shrink-0 ${node.accent}`} />
-                    <h4 className="text-sm font-bold text-[var(--text-primary)] tracking-tight group-hover:text-[var(--accent-color)] transition-colors duration-150">
+                    <h4 className="text-base font-bold text-[var(--text-primary)] tracking-tight group-hover:text-[var(--accent-color)] transition-colors duration-150">
                       {node.val}
                     </h4>
                   </div>
                 </div>
 
                 {/* Breve descripción */}
-                <p className="text-[10px] text-[var(--text-secondary)] font-sans leading-relaxed mt-2 line-clamp-2">
+                <p className="text-sm text-[var(--text-secondary)] font-sans leading-relaxed mt-2 line-clamp-2">
                   {node.desc}
                 </p>
               </Card>
