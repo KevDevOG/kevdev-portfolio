@@ -57,13 +57,13 @@ export const Navbar = () => {
             </div>
           </div>
 
-          {/* Enlaces de anclaje - ocultos en pantallas muy pequeñas, visibles desde md */}
-          <div className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8">
+          {/* Enlaces de anclaje - ocultos en pantallas muy pequeñas, visibles desde lg */}
+          <div className="hidden lg:flex items-center gap-3 xl:gap-6">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-[10px] md:text-xs xl:text-sm font-mono font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-150 tracking-wider"
+                className="text-[11px] xl:text-xs font-mono font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-150 tracking-wider whitespace-nowrap"
               >
                 {link.label}
               </a>
@@ -78,7 +78,7 @@ export const Navbar = () => {
             {/* Botón de Menú Móvil Técnico */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden flex items-center gap-1 bg-[var(--bg-card)] border border-[var(--border-color)] px-2 py-1 rounded font-mono text-[9px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-border)] transition-colors duration-150 cursor-pointer"
+              className="lg:hidden flex items-center gap-1 bg-[var(--bg-card)] border border-[var(--border-color)] px-2 py-1 rounded font-mono text-[9px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-border)] transition-colors duration-150 cursor-pointer"
               aria-label="Toggle Menu"
             >
               <span className="font-bold">{isMenuOpen ? "SYS_MENU: CLOSE" : "SYS_MENU: OPEN"}</span>
@@ -95,7 +95,7 @@ export const Navbar = () => {
 
         {/* Dropdown del Menú Móvil con estética de terminal limpia */}
         {isMenuOpen && (
-          <div className="md:hidden w-full border-t border-[var(--border-color)] mt-3 pt-3 flex flex-col gap-2 font-mono text-[10px]">
+          <div className="lg:hidden w-full border-t border-[var(--border-color)] mt-3 pt-3 flex flex-col gap-2 font-mono text-[10px]">
             {links.map((link) => (
               <a
                 key={link.href}
