@@ -26,7 +26,7 @@ export const ProjectsSection = () => {
     {
       id: "cfc-las-palmas",
       title: t("proj2_title"),
-      status: t("status_planning"),
+      status: t("status_dev"),
       badgeClass: "bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-400 border-zinc-300 dark:border-zinc-850",
       description: t("proj2_desc"),
       tech: t("proj2_tags").split(", "),
@@ -37,7 +37,7 @@ export const ProjectsSection = () => {
     {
       id: "kev-clientflow",
       title: t("proj3_title"),
-      status: t("status_prototype"),
+      status: t("status_dev"),
       badgeClass: "bg-purple-100 dark:bg-purple-950/40 text-purple-800 dark:text-purple-400 border-purple-300 dark:border-purple-900/60",
       description: t("proj3_desc"),
       tech: t("proj3_tags").split(", "),
