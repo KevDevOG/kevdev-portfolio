@@ -6,44 +6,44 @@ import { useTranslations } from "next-intl";
 import Card from "../ui/Card";
 import SectionTitle from "../ui/SectionTitle";
 import Badge from "../ui/Badge";
-import { Terminal, ShoppingBag, CreditCard } from "lucide-react";
+import { ShoppingBag, Users, Briefcase } from "lucide-react";
 
 export const ProjectsSection = () => {
   const t = useTranslations("Projects");
 
   const futureProjects = [
     {
-      id: "gestor-tareas",
-      title: t("task_title"),
+      id: "luz-y-lila",
+      title: t("proj1_title"),
       status: t("status_dev"),
       badgeClass: "bg-blue-100 dark:bg-blue-950/40 text-blue-800 dark:text-blue-400 border-blue-300 dark:border-blue-900/60",
-      description: t("task_desc"),
-      tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-      icon: Terminal,
+      description: t("proj1_desc"),
+      tech: t("proj1_tags").split(", "),
+      icon: ShoppingBag,
       progressText: "DEV_IN_PROGRESS...",
-      progress: 75,
+      progress: 60,
     },
     {
-      id: "api-escolar",
-      title: t("school_title"),
+      id: "cfc-las-palmas",
+      title: t("proj2_title"),
       status: t("status_planning"),
       badgeClass: "bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-400 border-zinc-300 dark:border-zinc-850",
-      description: t("school_desc"),
-      tech: ["Node.js", "Express", "PostgreSQL"],
-      icon: ShoppingBag,
-      progressText: "ARCHITECTURE_DESIGN...",
-      progress: 30,
-    },
-    {
-      id: "saas-facturacion",
-      title: t("future_title"),
-      status: t("status_future"),
-      badgeClass: "bg-purple-100 dark:bg-purple-950/40 text-purple-800 dark:text-purple-400 border-purple-300 dark:border-purple-900/60",
-      description: t("future_desc"),
-      tech: ["Next.js", "Supabase", "Tailwind"],
-      icon: CreditCard,
+      description: t("proj2_desc"),
+      tech: t("proj2_tags").split(", "),
+      icon: Users,
       progressText: "PLANNING...",
       progress: 10,
+    },
+    {
+      id: "kev-clientflow",
+      title: t("proj3_title"),
+      status: t("status_prototype"),
+      badgeClass: "bg-purple-100 dark:bg-purple-950/40 text-purple-800 dark:text-purple-400 border-purple-300 dark:border-purple-900/60",
+      description: t("proj3_desc"),
+      tech: t("proj3_tags").split(", "),
+      icon: Briefcase,
+      progressText: "PROTOTYPE_BUILD...",
+      progress: 85,
     }
   ];
 
