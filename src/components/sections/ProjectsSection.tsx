@@ -21,7 +21,7 @@ export const ProjectsSection = () => {
       tech: t("proj1_tags").split(", "),
       icon: ShoppingBag,
       progressText: "DEV_IN_PROGRESS...",
-      progress: 60,
+      progress: 50,
     },
     {
       id: "cfc-las-palmas",
@@ -31,8 +31,8 @@ export const ProjectsSection = () => {
       description: t("proj2_desc"),
       tech: t("proj2_tags").split(", "),
       icon: Users,
-      progressText: "PLANNING...",
-      progress: 10,
+      progressText: "DEV_IN_PROGRESS...",
+      progress: 50,
     },
     {
       id: "kev-clientflow",
@@ -42,8 +42,8 @@ export const ProjectsSection = () => {
       description: t("proj3_desc"),
       tech: t("proj3_tags").split(", "),
       icon: Briefcase,
-      progressText: "PROTOTYPE_BUILD...",
-      progress: 85,
+      progressText: "DEV_IN_PROGRESS...",
+      progress: 50,
     }
   ];
 
