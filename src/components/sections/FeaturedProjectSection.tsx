@@ -7,16 +7,13 @@ import Card from "../ui/Card";
 import SectionTitle from "../ui/SectionTitle";
 import Badge from "../ui/Badge";
 import { ExternalLink, GitBranch, Terminal, Shield, CheckCircle2 } from "lucide-react";
+import ProjectPreviewModal from "../ui/ProjectPreviewModal";
 
 export const FeaturedProjectSection = () => {
   const t = useTranslations("Featured");
   const p = useTranslations("Projects");
-  const [imageError, setImageError] = React.useState<Record<string, boolean>>({});
   const shouldReduceMotion = useReducedMotion();
-
-  const handleImageError = (id: string) => {
-    setImageError(prev => ({ ...prev, [id]: true }));
-  };
+  const [selectedProject, setSelectedProject] = React.useState<any>(null);
 
   const featuredProjects = [
     {
@@ -100,7 +97,7 @@ export const FeaturedProjectSection = () => {
   ];
 
   return (
-    <section id="proyectos" className="py-6 border-t border-[var(--border-color)]">
+    <section id="proyectos" className="py-6 border-t border-[var(--border-color)] relative">
       <SectionTitle title={t("title")} subtitle={t("subtitle")} />
 
       <div className="space-y-12">
@@ -240,36 +237,27 @@ export const FeaturedProjectSection = () => {
                       </div>
                     </div>
                     
-                    {/* Contenido (Imagen real o Placeholder técnico) */}
-                    <div className="w-full">
-                      {!imageError[project.id] ? (
-                        <img 
-                          src={project.image} 
-                          alt={`${project.title} Preview`} 
-                          className="w-full h-auto object-cover rounded-b-lg border-t border-[var(--border-color)]"
-                          onError={() => handleImageError(project.id)}
-                        />
-                      ) : (
-                        <div className="relative aspect-video w-full bg-[var(--bg-canvas)] flex flex-col items-center justify-center p-6 text-center select-none overflow-hidden group/preview">
-                          <div className="absolute inset-0 dot-grid opacity-30" />
-                          <div className="space-y-3 z-10">
-                            <div className="inline-flex p-3 rounded-full bg-[var(--bg-accent-badge)] text-[var(--text-accent-badge)] border border-[var(--accent-border)]/40 animate-pulse">
-                              <Terminal className="h-5 w-5" />
-                            </div>
-                            <div className="space-y-1">
-                              <p className="font-mono text-base font-bold text-[var(--text-primary)]">
-                                {t("preview_pending")}
-                              </p>
-                              <p className="text-xs text-[var(--text-secondary)] font-sans max-w-xs leading-normal">
-                                {t("preview_instructions")}
-                              </p>
-                            </div>
-                            <span className="inline-block font-mono text-xs text-[var(--text-muted)] border border-dashed border-[var(--border-color)] px-2 py-0.5 rounded">
-                              // {project.image}
-                            </span>
-                          </div>
-                        </div>
-                      )}
+                    {/* Contenido (Imagen real) */}
+                    <div 
+                      className="w-full border-t border-[var(--border-color)] bg-[var(--bg-canvas)] cursor-pointer overflow-hidden relative group/img"
+                      onClick={() => setSelectedProject({
+                        title: project.title,
+                        description: project.longDescription,
+                        image: project.image,
+                        url: project.url,
+                        actionText: project.actionText
+                      })}
+                    >
+                      <img 
+                        src={project.image} 
+                        alt={`${project.title} Preview`} 
+                        className="w-full h-auto object-cover rounded-b-lg transition-transform duration-700 group-hover/img:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                        <span className="opacity-0 group-hover/img:opacity-100 bg-black/60 text-white text-xs font-mono font-bold px-3 py-1.5 rounded-full backdrop-blur-sm transition-all duration-300 transform translate-y-2 group-hover/img:translate-y-0">
+                          CLICK_TO_ENLARGE
+                        </span>
+                      </div>
                     </div>
                   </motion.div>
                 </div>
@@ -297,6 +285,14 @@ export const FeaturedProjectSection = () => {
           </Card>
         ))}
       </div>
+
+      <ProjectPreviewModal 
+        isOpen={!!selectedProject} 
+        onClose={() => setSelectedProject(null)} 
+        project={selectedProject} 
+        openProjectText={t("open_project")}
+        loadingProjectText={t("loading_project")}
+      />
     </section>
   );
 };
