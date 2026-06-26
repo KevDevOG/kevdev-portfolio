@@ -12,35 +12,7 @@ import Image from "next/image";
 export const ProjectsSection = () => {
   const t = useTranslations("Projects");
 
-  const futureProjects = [
-    {
-      id: "luz-y-lila",
-      title: t("proj1_title"),
-      status: t("status_completed"),
-      badgeText: t("badge_real"),
-      badgeClass: "bg-blue-100 dark:bg-blue-950/40 text-blue-800 dark:text-blue-400 border-blue-300 dark:border-blue-900/60",
-      description: t("proj1_desc"),
-      tech: t("proj1_tags").split(", "),
-      icon: ShoppingBag,
-      progressText: "PROJECT_COMPLETED",
-      progress: 100,
-      image: "/projects/luz-y-lila-preview.png",
-      url: "https://luzylila.es"
-    },
-    {
-      id: "cfc-las-palmas",
-      title: t("proj2_title"),
-      status: t("status_completed"),
-      badgeText: t("badge_real"),
-      badgeClass: "bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-400 border-zinc-300 dark:border-zinc-850",
-      description: t("proj2_desc"),
-      tech: t("proj2_tags").split(", "),
-      icon: Users,
-      progressText: "PROJECT_COMPLETED",
-      progress: 100,
-      image: "/projects/cfc-las-palmas-preview.png",
-      url: "https://cfclaspalmas.com"
-    },
+  const futureProjects: any[] = [
     {
       id: "kev-clientflow",
       title: t("proj3_title"),
@@ -136,7 +108,7 @@ export const ProjectsSection = () => {
               {/* Pie con Stack y Progreso */}
               <div className="space-y-2 mt-auto">
                 <div className="flex flex-wrap gap-1">
-                  {proj.tech.map((techName) => (
+                  {proj.tech.map((techName: string) => (
                     <span key={techName} className="font-mono text-xs text-[var(--text-secondary)] bg-[var(--bg-canvas)] px-1.5 py-0.5 rounded border border-[var(--border-color)] font-semibold">
                       {techName}
                     </span>
