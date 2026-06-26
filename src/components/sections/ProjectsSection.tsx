@@ -7,6 +7,7 @@ import Card from "../ui/Card";
 import SectionTitle from "../ui/SectionTitle";
 import Badge from "../ui/Badge";
 import { ShoppingBag, Users, Briefcase } from "lucide-react";
+import Image from "next/image";
 
 export const ProjectsSection = () => {
   const t = useTranslations("Projects");
@@ -15,24 +16,30 @@ export const ProjectsSection = () => {
     {
       id: "luz-y-lila",
       title: t("proj1_title"),
-      status: t("status_dev"),
+      status: t("status_completed"),
+      badgeText: t("badge_real"),
       badgeClass: "bg-blue-100 dark:bg-blue-950/40 text-blue-800 dark:text-blue-400 border-blue-300 dark:border-blue-900/60",
       description: t("proj1_desc"),
       tech: t("proj1_tags").split(", "),
       icon: ShoppingBag,
-      progressText: "DEV_IN_PROGRESS...",
-      progress: 50,
+      progressText: "PROJECT_COMPLETED",
+      progress: 100,
+      image: "/projects/luz-y-lila-preview.png",
+      url: "https://luzylila.es"
     },
     {
       id: "cfc-las-palmas",
       title: t("proj2_title"),
-      status: t("status_dev"),
+      status: t("status_completed"),
+      badgeText: t("badge_real"),
       badgeClass: "bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-400 border-zinc-300 dark:border-zinc-850",
       description: t("proj2_desc"),
       tech: t("proj2_tags").split(", "),
       icon: Users,
-      progressText: "DEV_IN_PROGRESS...",
-      progress: 50,
+      progressText: "PROJECT_COMPLETED",
+      progress: 100,
+      image: "/projects/cfc-las-palmas-preview.png",
+      url: "https://cfclaspalmas.com"
     },
     {
       id: "kev-clientflow",
@@ -87,7 +94,7 @@ export const ProjectsSection = () => {
                 {/* Cabecera del Proyecto */}
                 <div className="flex items-center justify-between font-mono text-xs">
                   <Badge className={`uppercase tracking-widest px-2 py-0.5 border font-bold ${proj.badgeClass}`}>
-                    {proj.status}
+                    {proj.badgeText || proj.status}
                   </Badge>
                   <span className="text-[var(--text-muted)] font-mono">PID_{proj.id.toUpperCase().slice(0, 4)}</span>
                 </div>
@@ -104,16 +111,27 @@ export const ProjectsSection = () => {
                 </div>
               </div>
 
-              {/* Caja Visual Vacía e Intencional */}
-              <div className="border border-dashed border-[var(--border-color)]/60 rounded-lg bg-[var(--bg-canvas)]/30 h-32 md:h-36 w-full flex flex-col items-center justify-center p-3 text-center transition-colors duration-300 group-hover:bg-[var(--bg-canvas)]/50 select-none shrink-0">
-                <Icon className="h-5 w-5 text-[var(--text-muted)] opacity-60 mb-1.5" />
-                <span className="font-mono text-xs text-[var(--text-muted)] uppercase tracking-wider block">
-                  {t("preview_soon")}
-                </span>
-                <span className="font-mono text-xs text-[var(--text-muted)] uppercase opacity-60 tracking-wider">
-                  {proj.progressText}
-                </span>
-              </div>
+              {/* Caja Visual Vacía e Intencional o Imagen de Proyecto */}
+              {proj.image ? (
+                <div className="relative h-32 md:h-36 w-full rounded-lg overflow-hidden border border-[var(--border-color)]/60 shrink-0">
+                  <Image 
+                    src={proj.image} 
+                    alt={proj.title} 
+                    fill 
+                    className="object-cover transition-transform duration-500 group-hover:scale-105" 
+                  />
+                </div>
+              ) : (
+                <div className="border border-dashed border-[var(--border-color)]/60 rounded-lg bg-[var(--bg-canvas)]/30 h-32 md:h-36 w-full flex flex-col items-center justify-center p-3 text-center transition-colors duration-300 group-hover:bg-[var(--bg-canvas)]/50 select-none shrink-0">
+                  <Icon className="h-5 w-5 text-[var(--text-muted)] opacity-60 mb-1.5" />
+                  <span className="font-mono text-xs text-[var(--text-muted)] uppercase tracking-wider block">
+                    {t("preview_soon")}
+                  </span>
+                  <span className="font-mono text-xs text-[var(--text-muted)] uppercase opacity-60 tracking-wider">
+                    {proj.progressText}
+                  </span>
+                </div>
+              )}
 
               {/* Pie con Stack y Progreso */}
               <div className="space-y-2 mt-auto">
@@ -134,6 +152,17 @@ export const ProjectsSection = () => {
                     <div className="h-full bg-[var(--accent-color)]" style={{ width: `${proj.progress}%` }} />
                   </div>
                 </div>
+
+                {proj.url && (
+                  <a
+                    href={proj.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 flex items-center justify-center w-full py-2 bg-[var(--bg-canvas)] hover:bg-[var(--accent-color)] hover:text-white border border-[var(--border-color)] hover:border-[var(--accent-color)] transition-colors duration-300 rounded font-sans text-sm font-semibold text-[var(--text-primary)]"
+                  >
+                    {t("view_project")}
+                  </a>
+                )}
               </div>
             </Card>
             </motion.div>
